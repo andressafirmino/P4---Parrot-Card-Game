@@ -1,0 +1,58 @@
+body {
+    box-sizing: border-box;
+    background-color: #EEF9BF;
+}
+.container {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo {
+    width: 540px;
+    height: 63px;
+    color: #75B79E;
+    font-size: 56px;
+    font-weight: 700px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.game {
+    margin-top: 47px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.cartas {
+    width: 117px;
+    height: 146px;
+    border: 1px solid #99CEA8;
+    border-radius: 5px;
+    background-color: #A7E9AF;
+    margin-right: 34px;
+    margin-bottom: 34px;
+}
+
+@media (max-width: 614px) {
+    .titulo {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+
+    .game,
+    .bloco1,
+    .bloco2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 34px;
+
+    }
+    
+}
+
