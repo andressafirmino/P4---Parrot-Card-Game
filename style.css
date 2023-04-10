@@ -12,6 +12,7 @@ body {
     width: 540px;
     height: 63px;
     color: #75B79E;
+    font-family: 'Roboto';
     font-size: 56px;
     font-weight: 700px;
     margin-top: 40px;
@@ -62,11 +63,11 @@ body {
     transform: rotateY(0deg);
 }
 
-.backV {
+.selecionado>.back {
     transform: rotateY(0deg);
 }
 
-.frontV {
+.selecionado>.front {
     transform: rotateY(-180deg);
 }
 .desabilitar {
