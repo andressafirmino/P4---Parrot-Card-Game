@@ -1,37 +1,22 @@
 let numeroCartas = 0;
 
+let primeira = '';
+let segunda = '';
+let par = 0;
+
+let contarVirada = 0;
+let contarJogadas = 0;
+
+ let imgVerso = [];
+ let imgSortida = [];
+
 const imagens = ["bobrossparrot.gif", "explodyparrot.gif", "fiestaparrot.gif", "metalparrot.gif", "revertitparrot.gif", "tripletsparrot.gif", "unicornparrot.gif"];
 
 while (numeroCartas < 4 || numeroCartas > 14 || numeroCartas % 2 !== 0) {
     numeroCartas = prompt('Escolha o número de cartas\n- Número par\n- Número maior ou igual a 4\n- Número menor ou igual a 14');
 }
 
-
-let primeiraCarta = '';
-let segundaCarta = '';
-
-let primF = '';
-let segF = '';
-
-
-let primeira = '';
-let segunda = '';
-let primeiro = '';
-let segundo = '';
-
-let par = 0;
-let impar = '';
-
-let contarVirada = 0;
-let contarJogadas = 0;
-
-
-
- const duplas = numeroCartas / 2;
- let imgVerso = [];
- let imgSortida = [];
-
- 
+const duplas = numeroCartas / 2;
 
 let list = document.querySelector('.game');
 
@@ -42,7 +27,7 @@ let list = document.querySelector('.game');
         
         imgVerso[s] = `<div class="caixa-cartas" onclick = "virarCartas(this)" data-test="card">
         <div class="front cartas"><img src="./imagens/front 2.png" data-test="face-down-image"/></div>
-        <div class="back cartas"><img src="./imagens/${imagens[s]}" data-test="face-down-image" /></div>
+        <div class="back cartas"><img src="./imagens/${imagens[s]}" data-test="face-up-image" /></div>
     </div>`;  
     }
 
@@ -66,10 +51,6 @@ let list = document.querySelector('.game');
             contarVirada++;
             contarJogadas++;
             primeira = carta;
-           /* primeiro = primeiraCarta.querySelector('img');
-            primeira = primeiro.getAttribute('data-img');
-            console.log(primeira);*/
-
         }
 
         else if(carta.classList.contains('selecionado') !== true && contarVirada === 1) {
@@ -78,9 +59,6 @@ let list = document.querySelector('.game');
             
             contarJogadas++;
             segunda = carta;
-            /*segundo = segundaCarta.querySelector('img');
-            segunda = segundo.getAttribute('data-img');
-            console.log(segunda);*/
             setTimeout(verificarPar, 1000, primeira, segunda);
     
         }

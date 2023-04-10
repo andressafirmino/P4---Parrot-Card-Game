@@ -75,9 +75,6 @@ body {
 .selecionado>.front {
     transform: rotateY(-180deg);
 }
-.desabilitar {
-    opacity: 0.5;
-}
 
 @media (max-width: 335px) {
     .titulo p {
