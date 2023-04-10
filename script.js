@@ -12,14 +12,27 @@ while (numeroCartas < 4 || numeroCartas > 14 || numeroCartas % 2 !== 0) {
     numeroCartas = prompt('Escolha o número de cartas\n- Número par\n- Número maior ou igual a 4\n- Número menor ou igual a 14');
 }
 
-function virarCartas(carta) {
-    let virarF = carta.querySelector('.front');
-    virarF.classList.add('frontV');
 
-    let virarV = carta.querySelector('.back');
-    virarV.classList.add('backV');
+let primeiraCarta = '';
+let segundaCarta = '';
 
-}
+let primF = '';
+let segF = '';
+
+
+let primeira = '';
+let segunda = '';
+let primeiro = '';
+let segundo = '';
+
+let par = '';
+let impar = '';
+
+
+
+
+
+
  const duplas = numeroCartas / 2;
  let imgVerso = [];
  let imgSortida = [];
@@ -35,27 +48,88 @@ let list = document.querySelector('.game');
         imgVerso.sort(embaralhar);
     }
     
-
+let identificar = '';
     for (let s=0; s < numeroCartas; s++) {
 
         imgSortida.push(imgVerso[s]);
-        console.log(imgSortida);
-        list.innerHTML += `<div class="caixa-cartas" onclick= "virarCartas(this)">
+        identificar = imgSortida[s];
+        list.innerHTML += `<div class="caixa-cartas" onclick = "virarCartas(this)">
         <div class="front cartas"><img src="./imagens/front 2.png" /></div>
-        <div class="back cartas"><img src="./imagens/${imgSortida[s]}" /></div>
+        <div class="back cartas"><img data-img = ${identificar} src="./imagens/${imgSortida[s]}" /></div>
     </div>`;  
+    }
 
+
+    function virarCartas(carta) {
+
+        if (primeiraCarta === '') {
+
+            primF = carta.querySelector('.front');
+            primF.classList.add('frontV');
+    
+            primeiraCarta = carta.querySelector('.back');
+            primeiraCarta.classList.add('backV');
+            primeiro = primeiraCarta.querySelector('img');
+            primeira = primeiro.getAttribute('data-img');
+            console.log(primeira);
+
+        }
+
+        else if(segundaCarta === '') {
+            segF = carta.querySelector('.front');
+            segF.classList.add('frontV');
+    
+            segundaCarta = carta.querySelector('.back');
+            segundaCarta.classList.add('backV');
+            segundo = segundaCarta.querySelector('img');
+            segunda = segundo.getAttribute('data-img');
+            console.log(segunda);
+
+            verificarPar(carta);
+    
+        }
+    } 
+    
+function clicar(carta) {
+    let clicar = document.querySelectorAll('.caixa-cartas');
+    clicar.addEventListener('click', verificarPar);
+}
+function desclicar (carta) {
+    let desclicar = document.querySelector('.caixa-cartas');
+    desclicar.removeEventListener('click', verificarPar);
+}
+
+function verificarPar (carta) {
+        if (primeira === segunda) {
+            primeiraCarta.classList.add('desabilitar');
+            segundaCarta.classList.add('desabilitar');
+
+            desclicar();
+            
+            primeiraCarta = '';
+            segundaCarta = '';
+        }
+        else {
+
+            setTimeout (diferente, 1000)
+
+
+            function diferente() {
+                
+                primeiraCarta.classList.remove('backV');
+                primF.classList.remove('frontV');
+    
+            
+                segundaCarta.classList.remove('backV');
+                segF.classList.remove('frontV');
+        
+            
+                primeiraCarta = '';
+                segundaCarta = '';
+            }
+        }
     }
 
 
 
 
-
-
-
-
-
-/*for (let i = 0; numeroCartas > i; i++) {
-    list.innerHTML = list.innerHTML + list[i];
-
-}*/
