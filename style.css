@@ -3,34 +3,37 @@ body {
     background-color: #EEF9BF;
 }
 .container {
+    width: 100%;
     display: flex; 
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
-
 .titulo {
-    width: 540px;
-    height: 63px;
+    text-align: center;
+    margin-top: 40px;
+}
+.titulo p {
+    line-height: 66px;
     color: #75B79E;
     font-family: 'Roboto';
     font-size: 56px;
     font-weight: 700px;
-    margin-top: 40px;
     text-align: center;
 }
 
 .game {
+    width: 80%;
     margin-top: 47px;
+    gap: 35px;
     display: flex;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 
 .caixa-cartas { 
     width: 117px;
     height: 146px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: relative;
 
 }
@@ -39,12 +42,14 @@ body {
     height: 100%;    
     border: 1px solid #99CEA8;
     border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #A7E9AF;
-    margin-right: 34px;
-    margin-bottom: 34px;
     position:absolute;
     backface-visibility: hidden;
     transition: all 0.5s;
+    transform-style: preserve-3d;
 }
 
 .cartas img {
@@ -74,23 +79,15 @@ body {
     opacity: 0.5;
 }
 
-@media (max-width: 375px) {
-    .titulo {
+@media (max-width: 335px) {
+    .titulo p {
         width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        text-align: center;
-    }
-
-    .game,
-    .bloco1,
-    .bloco2 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        margin: 34px;
-
+        font-family: 'Roboto';
+        font-weight: 700px;
+        font-size: 36px;
+        line-height: 42px;
+        color: #75B79E;
+        
     }
     
 }

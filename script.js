@@ -40,9 +40,9 @@ let list = document.querySelector('.game');
 
     for (let s=0; s < duplas; s++) {
         
-        imgVerso[s] = `<div class="caixa-cartas" onclick = "virarCartas(this)">
-        <div class="front cartas"><img src="./imagens/front 2.png" /></div>
-        <div class="back cartas"><img src="./imagens/${imagens[s]}" /></div>
+        imgVerso[s] = `<div class="caixa-cartas" onclick = "virarCartas(this)" data-test="card">
+        <div class="front cartas"><img src="./imagens/front 2.png" data-test="face-down-image"/></div>
+        <div class="back cartas"><img src="./imagens/${imagens[s]}" data-test="face-down-image" /></div>
     </div>`;  
     }
 
